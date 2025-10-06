@@ -6,7 +6,7 @@ description: "<DESCRIPTION>"
 # image:
 #  url: "/images/projects/neonmint.webp"
 #   alt: ""
-pubDate: <PUB DATE>
+pubDate: 1969-01-01
 tags:
   [
     "Strata NGFW", "NGFW Certified Engineer"
