@@ -19,3 +19,5 @@ Thus this blog was born. My goal here is to demonstrate the journey, and hopeful
 2. *Field Notes* - These posts will dive into the consequences and context; they're stories and case studies that attempt to clarify that blurry line between "I understand that for the exam" and "I can deploy that in production". 
 
 So follow along, and let's learn something together.
+
+All thoughts are my own and do not represent the views of my employer or any vendors mentioned explicitly or implicitly.
