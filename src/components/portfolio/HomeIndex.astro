@@ -1,0 +1,55 @@
+---
+import Button from "../ui/Button.astro";
+import Heading from "../ui/Heading.astro";
+import Tools from "../portfolio/Tools.astro";
+import { Icon } from "astro-icon/components";
+import Hobbies from "../portfolio/Hobbies.astro";
+import { AstroError } from "astro/errors";
+import { getCollection} from "astro:content";
+
+const [staticData] = await getCollection('staticData');
+
+if (!staticData) {
+  throw new AstroError("JSON data not found");
+}
+---
+
+<section class="scroll-m-16 px-8 max-sm:px-4 py-8" id="home" aria-label="Professional profile and introduction">
+  <div class="mx-auto mb-4 h-96 w-full max-w-7xl rounded-2xl bg-linear-to-r from-surf-300 dark:from-surf-600 to-surf-50 dark:to-surf-200/5 hover:to-surf-300/30 dark:hover:to-surf-600/30 p-[.2rem]  max-md:h-auto">
+      <div class="group relative z-0 flex h-full items-center justify-center gap-8 overflow-hidden rounded-2xl bg-linear-to-tr from-sky-100 to-white p-4 transition-all hover:shadow-[0_10px_50px_rgba(13,188,130,0.2)] dark:bg-linear-to-r dark:from-surf-950 dark:to-zinc-950 dark:overflow-hidden max-md:w-full max-md:gap-3 max-lg:gap-2 max-sm:flex-col glow-circle-light hover:before:animate-pulse">
+        <div class="aspect-square h-4/5 max-md:size-32">
+          <div class="group-hover:scale-105 relative z-10 flex w-full cursor-pointer items-center overflow-hidden rounded-full p-[2px] transition-all duration-500">
+            <div class="absolute inset-0 h-full w-full rounded-fullfrom-transparent  to-sky-500 dark:from-transparent  f dark:to-surf-300 animate-rotate-border bg-conic/[from_var(--border-angle)] ">
+            </div>
+          <div class="relative z-20 flex w-full rounded-full bg-surf-900">
+            <div class="w-full aspect-square rounded-full bg-center bg-cover" style={`background-image: url(${staticData.data.profileImage})`} aria-label={staticData.data.profileAlt}>
+              <a href={staticData.data.profileLink} class="flex h-full w-full" aria-label="View about me page"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex h-full w-7/12 flex-col justify-center gap-4 p-4 max-md:w-full max-md:gap-2">
+        <h1 class="text-4xl font-black leading-none text-blacktext  dark:text-white max-xl:text-3xl max-lg:text-2xl  max-sm:text-center">
+          <b class=" bg-linear-to-r  from-sky-500 to-surf-500 dark:from-sky-300 dark:to-surf-200 text-transparent bg-clip-text">
+            Welcome to arlough.dev! 
+          </b>
+          👋
+        </h1>
+        <div class="flex gap-4 max-sm:flex-col max-sm:items-center">
+          <Button
+            link="/contact"
+            text={staticData.data.contactSectionButtonText}
+            iconName={staticData.data.emailIconName}
+          />
+          <Button
+            link={staticData.data.profileLink}
+            text="About Me"
+            iconName="person"
+            variant="dark"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

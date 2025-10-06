@@ -1,0 +1,30 @@
+---
+import Heading from "../ui/Heading.astro";
+import Button from "../ui/Button.astro";
+import { AstroError } from "astro/errors";
+import { getCollection} from "astro:content";
+
+const [staticData] = await getCollection('staticData');
+
+if (!staticData) {
+  throw new AstroError("JSON data not found");
+}
+---
+
+<section>
+  <div
+    class="w-full border-b bg-linear-to-b from-surf-100 to-transparent dark:from-surf-800 dark:border-surf-950 border-surf-100"
+  >
+    <div class="mx-auto max-w-5xl px-8 py-24 max-sm:py-12">
+      <div class="flex max-sm:gap-8 justify-center">
+        <div class="max-w-lg">
+          <Heading
+            text={staticData.data.contactSectionSubtitle}
+            level={2}
+          />
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

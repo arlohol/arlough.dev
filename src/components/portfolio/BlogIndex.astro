@@ -1,0 +1,41 @@
+---
+import LastPost from "../../components/blog/LastPost.astro";
+import Languages from "../../components/blog/Languages.astro";
+import Heading from "../../components/ui/Heading.astro";
+import { getCollection} from "astro:content";
+import { Icon } from "astro-icon/components";
+
+const [staticData] = await getCollection('staticData');
+
+---
+<section class="py-8 px-8  max-sm:px-4 max-sm:py-2">
+    <div class="grid md:grid-cols-4 md:grid-rows-2 gap-4 max-sm:gap-3 grid-cols-2 grid-rows-4 max-w-7xl mx-auto max-md:h-[80vh] max-sm:h-auto max-sm:grid-rows-[auto_200px_auto_auto] max-xl:h-[550px] xl:h-[700px]">
+
+        <div class="group hover:shadow-[0_20px_50px_rgba(13,188,130,0.4)] hover:scale-105 z-40 rounded-2xl transition-all ease-in duration-150 col-start-1 row-start-2 md:col-start-1 bg-linear-to-r from-surf-300 dark:from-surf-600 to-surf-50 dark:to-surf-200/5 hover:to-surf-300/30 dark:hover:to-surf-600/30 p-[.2rem] ">
+            <div class="w-full h-full overflow-hidden rounded-2xl dark:bg-zinc-900">
+            <div class="w-full h-full relative overflow-hidden rounded-2xl bg-linear-to-tr from-sky-100 to-white dark:from-transparent dark:bg-linear-to-bl dark:to-transparent ">
+                <a target="_blank" href={staticData.data.github}>
+                <div class="p-8 h-full relative max-xl:p-5 max-md:p-4 flex flex-col gap-8 glow-circle-small">
+                    <div class="z-2">
+                    <Heading text={staticData.data.githubText} textGradient="" level={3}/>
+                    </div>
+        
+                    <Icon class="group-hover:animate-pulse ease-in-out size-50 absolute -bottom-10 xl:size-56 xl:-bottom-5 left-30 max-sm:left-10 max-md:left-30 xl:-right-24 text-surf-500/30" name="github"/>
+                </div>
+                </a>
+            </div>
+            </div>
+        </div>
+      
+        <div class="p-8 max-md:gap-0  max-xl:p-5 h-full max-md:p-4 max-lg:gap-1 gap-3 flex flex-col border border-emerald-50 rounded-2xl dark:bg-zinc-800 bg-linear-to-r from-sky-200 to-surf-200 dark:from-sky-500 dark:to-surf-500 dark:border-zinc-800 dark:border-2 dark:bg-gradient-radial md:col-start-2 col-start-2 row-start-2 col-span-3">
+            <Heading text={staticData.data.techsTitle} textGradient="" level={3}/>
+            <div class="overflow-y-auto">
+                <Languages />
+            </div>
+        </div>
+
+        <div class="col-span-4 row-span-1 md:col-start-1 md:row-start-1 bg-conic/[from_var(--border-angle)] dark:from-surf-200/30 dark:via-surf-500 dark:to-surf-200/20 from-surf-300/30 via-surf-500 to-surf-300/20  from-20% to-80% animate-rotate-border rounded-2xl p-[.2rem]">
+            <LastPost />
+        </div>
+    </div>
+  </section>

@@ -1,0 +1,80 @@
+---
+import Button from "../ui/Button.astro";
+import LastPost from "../blog/LastPost.astro";
+import Languages from "../blog/Languages.astro";
+import { Icon } from "astro-icon/components";
+import Heading from "../ui/Heading.astro";
+import { AstroError } from "astro/errors";
+import { getCollection} from "astro:content";
+
+const [staticData] = await getCollection('staticData');
+
+if (!staticData) {
+  throw new AstroError("JSON data not found");
+}
+---
+
+<section class="py-8 px-8  max-sm:px-4 max-sm:py-2">
+  <div class="grid md:grid-cols-4 md:grid-rows-1 gap-4 max-sm:gap-3 grid-cols-2 grid-rows-2 max-w-7xl mx-auto md:h-[80vh] max-sm:grid-rows-[auto_200px_auto_auto] md:h-auto">
+    <div class="p-8 max-md:gap-0  max-xl:p-5 h-full max-md:p-4 max-lg:gap-1 gap-3 flex flex-col border border-emerald-50 rounded-2xl dark:bg-zinc-800 bg-linear-to-r from-sky-200 to-surf-200 dark:from-sky-500 dark:to-surf-500 dark:border-zinc-800 dark:border-2 dark:bg-gradient-radial md:col-start-4 col-start-2 md:row-start-1 row-start-2">
+      <Heading text={staticData.data.techsTitle} textGradient="" level={3}/>
+      <div class="overflow-y-auto">
+        <Languages />
+      </div>
+      
+    </div>
+    
+    <div class="group hover:shadow-[0_20px_50px_rgba(13,188,130,0.4)] hover:scale-105 z-40 rounded-2xl transition-all ease-in duration-150 col-start-1 row-start-2 md:col-start-3 md:row-start-1 bg-linear-to-r from-surf-300 dark:from-surf-600 to-surf-50 dark:to-surf-200/5 hover:to-surf-300/30 dark:hover:to-surf-600/30 p-[.2rem] ">
+      <div class="w-full h-full overflow-hidden rounded-2xl dark:bg-zinc-900">
+        <div class="w-full h-full relative overflow-hidden rounded-2xl bg-linear-to-tr from-sky-100 to-white dark:from-transparent dark:bg-linear-to-bl dark:to-transparent ">
+          <a target="_blank" href={staticData.data.github}>
+            <div class="p-8 h-full relative max-xl:p-5 max-md:p-4 flex flex-col gap-8 glow-circle-small">
+              <div class="z-2">
+                <Heading
+                text={staticData.data.githubText}
+                textGradient=""
+                level={3}
+                />
+              </div>
+              
+              <Icon
+              class="group-hover:animate-pulse ease-in-out size-50 absolute -bottom-10 xl:size-56 xl:-bottom-5 left-30 max-sm:left-10 max-md:left-30 xl:-right-24 text-surf-500/30"
+              name="github"
+              />
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flex col-span-2 col-start-1 row-start-1 bg-linear-to-r rounded-2xl from-surf-300 dark:from-surf-600 to-surf-50 dark:to-surf-200/5 hover:to-surf-300/30 dark:hover:to-surf-600/30 p-[.2rem]">
+      <article class="group glow-card hover:shadow-[0_20px_50px_rgba(18,168,186,0.2)] w-full h-full overflow-hidden p-4 max-md:p-4 gap-4 max-md:gap-1 max-lg:gap-0 rounded-2xl bg-linear-to-tr from-sky-100 to-surf-50 flex dark:bg-linear-to-r z-0 dark:overflow-hidden relative dark:from-surf-900 dark:to-surf-950">
+        <div class="group-hover:scale-103 ease-in-out duration-500 w-5/12 max-sm:w-auto flex justify-center items-center">
+          <div aria-label="Photo of Arlo Hollingshad for the blog" class="h-full w-full max-sm:rounded-full rounded-2xl max-sm:size-20 bg-center bg-cover" style="background-image: url(/images/arlo-profile.png)">
+            <a href="/about-me" class="h-full w-full flex"></a>
+          </div>
+        </div>
+        <div class="p-4 w-7/12 flex flex-col justify-center gap-4 max-sm:w-fit max-md:gap-2">
+          <span class="font-extrabold text-lg max-xl:text-base max-lg:text-sm max-lg:flex max-lg:flex-col-reverse max-md:flex-row leading-normal max-sm:leading-none">
+            <b class="bg-linear-to-r from-sky-400 to-surf-400 dark:from-sky-200 dark:to-surf-400 text-transparent bg-clip-text">Network Security Architect</b> 🚀
+          </span>
+          <h3 class="font-extrabold text-3xl max-md:text-xl dark:text-white text-blacktext">Arlo Hollingshad</h3>
+          <div class="w-fit h-fit from-transparent via-sky-300 to-transparent dark:from-transparent dark:via-surf-500 dark:to-transparent from-40% to-60% animate-rotate-border bg-conic/[from_var(--border-angle)] p-px hover:shadow-lg hover:shadow-surf-500/30 rounded-full">
+            <a class="z-2 text-center cursor-pointer leading-none hover:scale-110 w-fit font-medium flex gap-2 transition-all ease-in-out justify-center items-center rounded-full disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:bg-none disabled:hover:shadow-none aria-disabled:opacity-50 aria-disabled:cursor-not-allowed aria-disabled:hover:scale-100 aria-disabled:hover:bg-none aria-disabled:hover:shadow-none text-blacktext/90 dark:text-surf-50 dark:hover:text-white px-6 py-4 max-xl:px-5 max-sm:py-2 max-sm:px-3 text-lg max-xl:text-base max-sm:text-sm hover:bg-linear-to-l bg-linear-to-r from-sky-300 to-surf-300 dark:from-sky-500 dark:to-surf-500 drop-shadow-xl" href="/about-me" aria-label="About Me person" role="button" aria-disabled="false" aria-busy="false" aria-pressed="false">
+              <svg width="1em" height="1em" class="size-5" aria-hidden="true" data-icon="person">
+                <symbol id="ai:local:person" viewBox="0 0 15 15">
+                  <path fill="currentColor" fill-rule="evenodd" d="M7.5.875a3.625 3.625 0 0 0-1.006 7.109c-1.194.145-2.218.567-2.99 1.328-.982.967-1.479 2.408-1.479 4.288a.475.475 0 1 0 .95 0c0-1.72.453-2.88 1.196-3.612.744-.733 1.856-1.113 3.329-1.113s2.585.38 3.33 1.113c.742.733 1.195 1.892 1.195 3.612a.475.475 0 1 0 .95 0c0-1.88-.497-3.32-1.48-4.288-.77-.76-1.795-1.183-2.989-1.328A3.627 3.627 0 0 0 7.5.875M4.825 4.5a2.675 2.675 0 1 1 5.35 0 2.675 2.675 0 0 1-5.35 0" clip-rule="evenodd"></path>
+                </symbol>
+                <use href="#ai:local:person"></use>
+              </svg>
+              About Me
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+    <!-- <div class="col-span-2 row-span-2 md:col-start-1 md:row-start-1 bg-conic/[from_var(--border-angle)] dark:from-surf-200/30 dark:via-surf-500 dark:to-surf-200/20 from-surf-300/30 via-surf-500 to-surf-300/20  from-20% to-80% animate-rotate-border rounded-2xl p-[.2rem]">
+    <LastPost />
+    </div> -->
+  </div>
+</section>

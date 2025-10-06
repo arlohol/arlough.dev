@@ -1,0 +1,94 @@
+---
+// ContactForm.astro - A clean, accessible contact form for Netlify Forms
+---
+
+<form 
+  name="contact" 
+  method="POST" 
+  data-netlify="true" 
+  data-netlify-honeypot="bot-field"
+  action="/contact-success"
+  class="contact-form"
+>
+  <!-- Hidden fields for Netlify Forms -->
+  <input type="hidden" name="form-name" value="contact" />
+  <p class="hidden">
+    <label>
+      Don't fill this out if you're human: <input name="bot-field" />
+    </label>
+  </p>
+
+  <!-- Name Field -->
+  <div class="contact-field">
+    <label 
+      for="name" 
+      class="contact-label"
+    >
+      Your Name *
+    </label>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      required
+      placeholder="Enter your full name"
+      class="contact-input"
+    />
+  </div>
+
+  <!-- Email Field -->
+  <div class="contact-field">
+    <label 
+      for="email" 
+      class="contact-label"
+    >
+      Email Address *
+    </label>
+    <input
+      type="email"
+      name="email"
+      id="email"
+      required
+      placeholder="your.email@example.com"
+      class="contact-input"
+    />
+  </div>
+
+  <!-- Message Field -->
+  <div class="contact-field">
+    <label 
+      for="message" 
+      class="contact-label"
+    >
+      Message *
+    </label>
+    <textarea
+      name="message"
+      id="message"
+      rows="6"
+      required
+      placeholder="Tell me about your project, question, or how I can help you..."
+      class="contact-input contact-textarea"
+    ></textarea>
+  </div>
+
+  <!-- Submit Button -->
+  <div class="contact-field" style="text-align: center; padding-top: 1rem;">
+    <button
+      type="submit"
+      class="contact-submit-btn"
+    >
+      <span class="flex items-center gap-2">
+        <svg class="w-5 h-5 group-hover:translate-x-0.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+        </svg>
+        Send Message
+      </span>
+    </button>
+  </div>
+
+  <!-- Help Text -->
+  <p class="contact-help-text">
+    I typically respond within 24-48 hours. All fields marked with * are required.
+  </p>
+</form>

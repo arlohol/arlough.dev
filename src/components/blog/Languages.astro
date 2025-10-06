@@ -1,0 +1,44 @@
+ ---
+import Capsule from "../ui/Capsule.astro";
+
+// Type definition for Markdown frontmatter
+type MarkdownModule = {
+  frontmatter: {
+    title?: string;
+    languages?: string[];
+  };
+};
+
+// Eagerly load markdown content
+const modules = import.meta.glob<MarkdownModule>("../../pages/blog/posts/*.md", {
+  eager: true,
+});
+
+// Extract posts from modules
+const allPosts = Object.values(modules);
+
+// Collect unique languages
+const languages = [
+  ...new Set(allPosts.flatMap((post) => post.frontmatter.languages ?? [])),
+];
+
+// Props and class logic
+const { variant = "default" } = Astro.props;
+
+const baseClasses = "flex flex-wrap";
+const variantClasses = {
+  default: "gap-3 max-lg:gap-1",
+  vertical: "gap-6 flex-col",
+} as const;
+
+const classes = `${baseClasses} ${
+  variantClasses[variant as keyof typeof variantClasses] || variantClasses.default
+}`;
+---
+
+<div class={classes}>
+  {languages.map((language: string) => (
+    <Capsule lang={language} linkEnabled={true} size="md" />
+  ))}
+</div>
+

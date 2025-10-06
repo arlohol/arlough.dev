@@ -1,0 +1,67 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+const EXPERIENCE = [
+  {
+    date: "Dec 2022 - Present",
+    title: "Senior Technical Architect - Palo Alto Networks",
+    company: "CDW",
+    description:
+      "Technical Architect Things",
+  },
+  {
+    date: "Apr 2022 - Dec 2022",
+    title: "Senior Consulting Engineer - Network Security",
+    company: "CDW",
+    description:
+      "Sr Engineer things",
+  },
+  {
+    date: "Sept 2019 - Apr 2022",
+    title: "Consulting Engineer - Network Security",
+    company: "CDW",
+    description: 
+      "Engineer things"
+  },
+  {
+    date: "Apr 2018 - Apr 2019",
+    title: "Associate Consulting Engineer - Network Security",
+    company: "CDW",
+    description:
+      "Associate things"
+  },
+  {
+    date: "Sept 2017 - Apr 2018",
+    title: "Associate Access Control Analyst",
+    company: "Duluth Trading Company",
+    description: 
+      "Access control things"
+  },
+  {
+    date: "Jul 2014 - Jul 2016",
+    title: "Technical Services",
+    company: "Epic",
+    description: 
+      "TS things"
+  },
+  
+];
+---
+
+<div class="relative max-md:mt-0 mt-8" aria-label="Professional experience">
+  <ol class="relative mt-10">
+    {
+      EXPERIENCE.map((experience, index) => (
+        <li class="">
+          <article role="article" aria-labelledby={`experience-title-${index}`}>
+            <div
+              class="flex flex-col gap-2  text-zinc-00 dark:text-zinc-300 md:col-span-3"
+              aria-describedby={`experience-title-${index}`}
+            >
+              <ExperienceItem {...experience} />
+            </div>
+          </article>
+        </li>
+      ))
+    }
+  </ol>
+</div>

@@ -1,0 +1,127 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ContactForm from "../components/ui/ContactForm.astro";
+import Heading from "../components/ui/Heading.astro";
+import { Icon } from "astro-icon/components";
+import { getCollection } from "astro:content";
+
+const pageTitle = "Contact Me | Arlough.dev";
+const description = "Get in touch with Arlo Hollingshad. Whether you have a project idea, technical question, or just want to connect, I'd love to hear from you.";
+const [staticData] = await getCollection('staticData');
+---
+
+<Layout pageTitle={pageTitle} description={description}>
+  <main class="min-h-screen bg-surf-50/5 dark:bg-[#0E0E11] text-surf-600 dark:text-surf-300">
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12">
+      <div class="mx-auto max-w-5xl px-8">
+        <div class="text-center space-y-6">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-riptide-500 to-mint-500 rounded-2xl mb-6">
+            <Icon name="envelope" class="w-8 h-8 text-white" />
+          </div>
+          
+          <Heading 
+            text="Let's Connect" 
+            textGradient="& Collaborate"
+            level={1}
+            className="text-center"
+          />
+          
+          <p class="text-lg max-w-2xl mx-auto leading-relaxed">
+            Have a project in mind? A technical question? Or just want to say hello? 
+            I'm always excited to connect with fellow developers, potential collaborators, 
+            and anyone interested in technology and innovation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="pb-24">
+      <div class="mx-auto max-w-5xl px-8">
+        <div class="from-surf-50/50 to-surf-300/10 dark:from-zinc-800 dark:to-surf-800/10 rounded-2xl shadow-xl dark:shadow-surf-950/50 p-8 md:p-12 border border-surf-100 dark:border-surf-800">
+            <div class="mb-8 text-center">
+            <h2 class="text-2xl font-bold mb-4">
+              Send Me a Message
+            </h2>
+          </div>
+          <ContactForm />
+        </div>
+      </div>
+    </section>
+
+    <!-- Alternative Contact Methods -->
+    <section class="pb-24">
+      <div class="mx-auto max-w-5xl px-8">
+        <div class="text-center mb-12">
+          <div class="flex gap-4 items-center justify-center text-center">
+            <Icon class="text-3xl dark:text-white text-blacktext" name="envelope" />
+            <Heading textGradient="Other Ways to Connect" level={2}/>
+          </div>
+          <p class="z-2 text-center mx-auto text-lg max-xl:text-base max-w-2xl dark:text-gray-200 text-blacktext my-6 leading-6 font-medium">
+            Prefer a different communication method? You can also find me on these platforms.
+            <br />
+            <b class="bg-linear-to-r from-sky-500 to-surf-500 dark:from-sky-300 dark:to-surf-200 text-transparent bg-clip-text">
+              Let's connect!
+            </b>
+          </p>
+        </div>
+        
+        <div class="flex flex-col gap-8 max-w-7xl mx-auto">
+          <div class="grid grid-cols-3 md:grid-cols-3 gap-6">
+            <!-- LinkedIn -->
+            <div class="group hover:shadow-[0_20px_50px_rgba(13,188,130,0.4)] hover:scale-105 z-40 rounded-2xl transition-all ease-in duration-150 bg-linear-to-r from-surf-300 dark:from-surf-600 to-surf-50 dark:to-surf-200/5 hover:to-surf-300/30 dark:hover:to-surf-600/30 p-[.2rem] ">
+                <div class="w-full h-full overflow-hidden rounded-2xl dark:bg-zinc-900">
+                    <div class="w-full h-full relative overflow-hidden rounded-2xl bg-linear-to-tr from-sky-100 to-white dark:from-transparent dark:bg-linear-to-bl dark:to-transparent ">
+                        <a target="_blank" href={staticData.data.linkedin}>
+                            <div class="p-8 h-full relative max-xl:p-5 max-md:p-4 flex flex-col gap-8 glow-circle-small">
+                                <div class="z-2">
+                                    <Heading text="Linkedin" textGradient="" level={3}/>
+                                </div>
+        
+                                <Icon class="group-hover:animate-pulse ease-in-out size-50 absolute -bottom-10 xl:size-56 xl:-bottom-5 left-30 max-sm:left-10 max-md:left-30 xl:-right-24 text-surf-500/30" name="linkedin"/>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GitHub -->
+            <div class="group hover:shadow-[0_20px_50px_rgba(13,188,130,0.4)] hover:scale-105 z-40 rounded-2xl transition-all ease-in duration-150 bg-linear-to-r from-surf-300 dark:from-surf-600 to-surf-50 dark:to-surf-200/5 hover:to-surf-300/30 dark:hover:to-surf-600/30 p-[.2rem] ">
+                <div class="w-full h-full overflow-hidden rounded-2xl dark:bg-zinc-900">
+                    <div class="w-full h-full relative overflow-hidden rounded-2xl bg-linear-to-tr from-sky-100 to-white dark:from-transparent dark:bg-linear-to-bl dark:to-transparent ">
+                        <a target="_blank" href={staticData.data.github}>
+                            <div class="p-8 h-full relative max-xl:p-5 max-md:p-4 flex flex-col gap-8 glow-circle-small">
+                                <div class="z-2">
+                                    <Heading text={staticData.data.githubText} textGradient="" level={3}/>
+                                </div>
+        
+                                <Icon class="group-hover:animate-pulse ease-in-out size-50 absolute -bottom-10 xl:size-56 xl:-bottom-5 left-30 max-sm:left-10 max-md:left-30 xl:-right-24 text-surf-500/30" name="github"/>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog -->
+            <div class="group hover:shadow-[0_20px_50px_rgba(13,188,130,0.4)] hover:scale-105 z-40 rounded-2xl transition-all ease-in duration-150 bg-linear-to-r from-surf-300 dark:from-surf-600 to-surf-50 dark:to-surf-200/5 hover:to-surf-300/30 dark:hover:to-surf-600/30 p-[.2rem] ">
+                <div class="w-full h-full overflow-hidden rounded-2xl dark:bg-zinc-900">
+                    <div class="w-full h-full relative overflow-hidden rounded-2xl bg-linear-to-tr from-sky-100 to-white dark:from-transparent dark:bg-linear-to-bl dark:to-transparent ">
+                        <a target="_blank" href="/blog">
+                            <div class="p-8 h-full relative max-xl:p-5 max-md:p-4 flex flex-col gap-8 glow-circle-small">
+                                <div class="z-2">
+                                    <Heading text="Blog" textGradient="" level={3}/>
+                                </div>
+                                <Icon class="group-hover:animate-pulse ease-in-out size-50 absolute -bottom-10 xl:size-56 xl:-bottom-5 left-30 max-sm:left-10 max-md:left-30 xl:-right-24 text-surf-500/30" name="markdown"/>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
