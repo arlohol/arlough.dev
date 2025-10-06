@@ -3,7 +3,7 @@ layout: /src/layouts/MarkdownPostLayout.astro
 title: NGFWE - 1.3 High Availability Configuration
 author: Arlo Hollingshad
 description: "This post covers High Availability configuration topics for the Palo Alto Networks NGFW Certified Engineer certification"
-pubDate: 2025-07-20
+pubDate: 2025-10-07
 image: 
   url: ""
 tags:

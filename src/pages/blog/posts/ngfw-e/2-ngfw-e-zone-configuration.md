@@ -6,7 +6,7 @@ description: "This post covers zone configuration topics for the Palo Alto Netwo
 image:
   url: ""
 #   alt: "Screenshot of NeonMint, a modern and minimalist web template built with Astro and TailwindCSS. It displays various sections such as blog, portfolio, work experience, and Markdown guide, in both light and dark modes with mint green accents."
-pubDate: 2025-07-06
+pubDate: 2025-10-05
 tags:
   [
     "Strata NGFW", "NGFW Certified Engineer", "Routing"
