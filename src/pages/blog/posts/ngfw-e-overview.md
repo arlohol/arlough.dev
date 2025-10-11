@@ -5,7 +5,8 @@ author: Arlo Hollingshad
 description: "Overview page for all content related to NGFW-E Exam preparation."
 pubDate: 2025-06-23
 image:
-  url: ""
+  url: "/images/posts/ngfw-e.png"
+  alt: "Badge for the Certified Palo Alto NGFW Engineer certification"
 tags:
   [
     "Strata NGFW", "NGFW Certified Engineer"
@@ -29,6 +30,10 @@ The full blueprint for this exam can be found [here](https://www.paloaltonetwork
 1. [Interface Configuration](ngfw-e/1-ngfw-e-interface-configuration)
 2. [Zone Configuration](ngfw-e/2-ngfw-e-zone-configuration)
 3. High Availability Configuration
+  - Part 1 - [HA Concepts and Overview](ngfw-e/3-ngfw-e-ha-overview)
+  - Part 2 - [Active/Passive HA](ngfw-e/3-ngfw-e-ha-ap)
+  - Part 3 - [Active/Active HA](ngfw-e/3-ngfw-e-ha-aa)
+  - Part 4 - [Clustering](ngfw-e/3-ngfw-e-ha-c)
 4. Routing Configuration
 5. GlobalProtect Configuration
 6. VPN Tunnel Configuration
