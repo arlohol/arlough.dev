@@ -1,11 +1,28 @@
 ---
 const { title, url, date, image, tags = [], languages = [] } = Astro.props;
-
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import Tag from "../ui/Tag.astro";
 import ReadMore from "../ui/ReadMore.astro";
 import DatePub from "./DatePub.astro";
 import Capsule from "../ui/Capsule.astro";
 
+
+// Process the image if provided
+let optimizedImage;
+if (image?.url) {
+    // Add proper typing for the image imports
+    const images = import.meta.glob<{ default: ImageMetadata }>('/src/pages/blog/images/**/*.{png,jpg,jpeg,webp}');
+    const imageName = image.url.split('/').pop();
+    const imagePath = `/src/pages/blog/images/${imageName}`;
+    const imageModule = await images[imagePath]?.();
+    
+
+    if (imageModule) {
+        const imageData = imageModule.default;
+        optimizedImage = await getImage({ src: imageData, format: 'webp' });
+    }
+}
 ---
 
 <article class="bg-white dark:bg-zinc-900/25 dark:border dark:border-zinc-800 dark:hover:border-surf-300 hover:backdrop-blur-none backdrop-blur-lg shadow-sm overflow-auto hover:shadow-[5px_5px_rgba(0,98,90,0.4),10px_10px_rgba(0,98,90,0.3),15px_15px_rgba(0,98,90,0.2),20px_20px_rgba(0,98,90,0.1),25px_25px_rgba(0,98,90,0.05)] p-8 max-md:p-6 w-full flex justify-between items-center bg-linear-to-r hover:from-teal-200 hover:to-emerald-200 dark:hover:from-sky-500 dark:hover:to-surf-500 transition-all hover:scale-105  duration-200 ease-in-out gap-8 max-md:gap-4 rounded-3xl max-md:flex-col-reverse">
@@ -25,7 +42,7 @@ import Capsule from "../ui/Capsule.astro";
             </div>
         </div>
     </div>
-    {image?.url && (
-        <a href={url} style={{ backgroundImage: `url(${image.url})` }} class="shrink-0 rounded-2xl bg-center bg-cover aspect-video max-md:aspect-video w-2/6 max-md:w-full" />
+    {optimizedImage && (
+        <a href={url} style={{ backgroundImage: `url(${optimizedImage.src})` }} class="shrink-0 rounded-2xl bg-center bg-cover aspect-video max-md:aspect-video w-2/6 max-md:w-full" />
     )}
 </article>

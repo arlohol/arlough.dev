@@ -4,8 +4,7 @@ title: NGFWE - 1.1 Interface Configuration
 author: Arlo Hollingshad
 description: "This post covers interface configuration topics for the Palo Alto Networks NGFW Certified Engineer certification"
 image:
-  url: "../../images/l2-interfaces.png"
-  alt: "Image of a logical network diagram showing the different firewall interface types."
+  url: "/src/pages/blog/images/l2-interfaces.png"
 pubDate: 2025-10-01
 tags:
   [
@@ -25,7 +24,7 @@ Layer 2 interfaces can be configured to accept either **tagged** or **untagged**
 2. **VLAN object** - ```(Network > VLANs)``` The VLAN object does not define the VLAN tag, it is only a logical container object for interfaces.
 
 ![L2 Interface Example Diagram](../../images/preemption.png)
-
+![Test](../../images/l2-interfaces.png)
 If you're familiar with traditional Route/Switch devices, you're probably familiar with access and trunk ports. Access ports assign a VLAN tag to incoming traffic, while trunk ports only pass traffic with the matching VLAN tags. In Palo Alto land, if you're receiving tagged traffic on an L2 interface (i.e. over a trunk with multiple VLANs), you'll need to perform the following steps:
 1. Configure a VLAN interface (tag, Virtual/Logical Router, Zone) - Only needed if you want an IP address for this VLAN on the firewall.
 2. Configure a VLAN object (I like to name mine **VLAN\<ID\>** so I know which VLAN it's attached to at a glance)
