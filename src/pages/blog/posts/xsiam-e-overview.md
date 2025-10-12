@@ -11,7 +11,7 @@ tags:
     "XSIAM Certified Engineer"
   ]
 languages: ["cortexXSIAM"]
-draft: false
+draft: true
 ---
 
 ## Overview
