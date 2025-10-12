@@ -5,7 +5,7 @@ author: Arlo Hollingshad
 description: "Overview page for all content related to NGFW-E Exam preparation."
 pubDate: 2025-06-23
 image:
-  url: "../images/ngfw-e.png"
+  # url: "../images/ngfw-e.png"
   alt: "Badge for the Certified Palo Alto NGFW Engineer certification"
 tags:
   [
