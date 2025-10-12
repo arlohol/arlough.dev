@@ -61,7 +61,7 @@ One of the most important areas of configuration for HA is the Election settings
 #### Preemption
 Preemption determines whether FW1 will take back over from the FW2 after a failover once it recovers. For example, if the FW1 reboots unexpectedly FW2 takes over. Once FW1 comes back up, if preemption is enabled, it will take over the active role from FW2 again if it is in a healthy state.
 
-![Active/Passive Preemption flow](../../images/preemption.svg)
+![Active/Passive Preemption flow](../../images/preemption.png)
 
 Preemption generally isn't recommended for two reasons. First, failovers involve downtime. If preemption is enabled, you risk taking an unneccessary downtime just to failover between two healthy devices. In some cases, this could lead to a Preemption Loop, where the firewalls continually fail back and forth until the [Flap Max](#Flap-Max) Second, if a device fails, you should usually investigate the cause of the failure before allowing it to start passing traffic again.
 
