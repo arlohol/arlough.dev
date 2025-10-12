@@ -3,7 +3,7 @@ layout: /src/layouts/MarkdownPostLayout.astro
 title: NGFWE - 1.1 Interface Configuration
 author: Arlo Hollingshad
 description: "This post covers interface configuration topics for the Palo Alto Networks NGFW Certified Engineer certification"
-image:
+# image:
   # url: "../../images/l2-interfaces.png"
 pubDate: 2025-10-01
 tags:
