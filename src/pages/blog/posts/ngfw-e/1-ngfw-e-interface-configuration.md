@@ -4,7 +4,7 @@ title: NGFWE - 1.1 Interface Configuration
 author: Arlo Hollingshad
 description: "This post covers interface configuration topics for the Palo Alto Networks NGFW Certified Engineer certification"
 image:
-  url: "/images/posts/l2-interfaces.svg"
+  url: "../../images/l2-interfaces.svg"
   alt: "Image of a logical network diagram showing the different firewall interface types."
 pubDate: 2025-10-01
 tags:

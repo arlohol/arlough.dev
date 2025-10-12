@@ -5,7 +5,7 @@ author: Arlo Hollingshad
 description: "Overview page for all content related to XSIAM-E Exam preparation."
 pubDate: 2025-10-07
 image:
-  url: "/images/posts/xsiam-e.png"
+  url: "../images/xsiam-e.png"
 tags:
   [
     "XSIAM Certified Engineer"
