@@ -11,6 +11,9 @@ drawings/
 # generated types
 .astro/
 
+# obsidian notes
+src/pages/.obsidian/*
+
 # dependencies
 node_modules/
 
@@ -32,3 +35,7 @@ pnpm-debug.log*
 
 # Other files
 drawings/
+
+# Obsidian files
+.obsidian/*
+.obsidian

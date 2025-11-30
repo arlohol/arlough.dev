@@ -29,10 +29,8 @@ The criteria that must be matched for two firewalls to establish Active/Passive 
     - All HA IP addresses must be IPv4
     - Multi-VSYS is disabled
 
-## Mode Overview
+## Overview
 Active/Passive is the traditional mode for HA firewalls. One devices is active and passing all traffic, while the other waits in reserve. If the active firewall fails or detects a failure, the firewalls will *failover*. The Active firewall will move to an inactive state, and the Passive firewall will become Active. The specifics of the configuration will determine when and how quickly this failover happens (see below). Active/Passive supports L2, L3, and virtual wire deployments.
-
-Config Sync is an option that should almost always be turned on during HA configuration. This ensures that the two firewalls are syncing their configuration between devices. Generally this is only disabled while resolving a failover incident, to ensure that any configuration changes made are not synced until the issue is resolved. You can compare the differences between each device in the pair in the Config Audit menu. Configuration can be manually synced from the **Dashboard**.
 
 ## States
 1. **Active** - Firewall is live and currently passing traffic
@@ -43,17 +41,18 @@ Config Sync is an option that should almost always be turned on during HA config
 ## Configuration and Settings
 Basic High-Availability on a Palo Alto firewall is very simple. Connect a cable, configure the interface, enable the setting and configure a group and you're good to go. However, there are some nuances that can have a significant impact on your actual resiliency. Let's go through the full process and talk about each step.
 
-> #### Just Get it Running
-> The configuration for HA on a firewall is located in **Device > High Availability**. These are the only settings you need to configure to get HA up > and running: 
-> ![alt text](../../images/ha-basics.png)
-> - *Group ID*: An identifier to help the firewall match with the appropriate peer. If the group ID doesn't match between devices, they will not > establish HA.
-> - *Peer HA1 IP Address*: The IP address configured on the HA1 interface of the <u>peer</u> device. 
-> - *Backup Peer HA1 IP Address (optional)*: The IP address configured on the backup HA1 interface of the <u>peer</u> device.
-> - Network connectivity between the HA1 interfaces on both devices.
+ #### Quickstart configuration
+ The configuration for HA on a firewall is located in **Device > High Availability**. These are the only settings you need to configure to get HA up and running: 
+ ![alt text](../../images/ha-basics.png)
+ - **Group ID**: An identifier to help the firewall match with the appropriate peer. If the group ID doesn't match between devices, they will not > establish HA.> - *Peer HA1 IP Address*: The IP address configured on the HA1 interface of the <u>peer</u> device. 
+ - **Backup Peer HA1 IP Address (optional)**: The IP address configured on the backup HA1 interface of the <u>peer</u> device.
+ - Network connectivity between the HA1 interfaces on both devices.
 
 Note that this is not the *recommended* way to set up HA, just the bare minimum of what is required.
 
-## Other Settings
+### Config Sync
+Config Sync is an option that should almost always be turned on during HA configuration. This ensures that the two firewalls are syncing their configuration between devices. Generally this is only disabled while resolving a failover incident, to ensure that any configuration changes made are not synced until the issue is resolved. You can compare the differences between each device in the pair in the Config Audit menu. Configuration can be manually synced from the **Dashboard**.
+
 ### Passive Link State
 This determines what state the interfaces are on the passive firewall. By default this is *Shutdown*, but can be configured to *Auto*. Either way, the HA IP address will float between the Primary and secondary device, but the MAC address may change.
 
@@ -64,11 +63,7 @@ Corresponding interfaces on the firewall will be assigned a Virtual MAC that wil
 
 The interfaces on the Passive device will not participate in ARP, and will not pass traffic. This is ideal when the firewall is all layer 3. If the firewall has any layer 2 interfaces, this can cause issues, because some switches will see that the interface is up and try to send some packets to that interface, which the firewall will drop. 
 
-
-
 # References
-1. [Passive Link Modes](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000ClcACAS)
-2. [Preemption](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000ClWPCA0)
-3. [Preemption Loops](https://knowledgebase.paloaltonetworks.com/articles/en_US/Knowledge/When-does-an-HA-node-go-into-S-67706)
-4. [Heartbeat and Hellos](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000ClUcCAK)
-5. [Suspended state](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000ClgVCAS)
+1. [Configuration](https://docs.paloaltonetworks.com/ngfw/administration/high-availability/set-up-activepassive-ha/configure-activepassive-ha)
+2. [Passive Link Modes](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000ClcACAS)
+3. [HA Best Practices according to Palo Alto](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm5ZCAS)

@@ -15,11 +15,12 @@ draft: true
 ---
 
 # Active/Active
-## Mode Overview
+## Overview
 Active/Active is a more complex HA mode where both firewalls are active and passing traffic at the same time. Each firewall manages its own session routing tables and will synchronize with its peer. Active/Active can be used in both Layer 3 and Virtual Wire environments.
 
 Active/Active is almost **never** the recommended configuration. It is more difficult to configure, manage, and troubleshoot. While Active/Active can handle higher peak traffic loads than Active/Passive, you should never configure the network to assume throughput more than what one firewall can handle. Because if one device goes down, the remaining firewall will not be able to handle the load. 
-> ### Caveats: 
+
+> [!Caveats]
 > - Firewalls in Active/Active cannot receive an IP address via DHCP, and only the Primary device will act as a DHCP relay. The Secondary device will drop all DHCP broadcasts.
 > - Firewalls in the cloud do not currently support Active/Active configuration 
 
@@ -33,5 +34,10 @@ Active/Active is almost **never** the recommended configuration. It is more diff
 ## Concepts
 
 
-## Configuration
+## Configuration and Settings
 > #INCOMING
+
+## Settings
+
+
+## References
