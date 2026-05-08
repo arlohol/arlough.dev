@@ -15,9 +15,9 @@
     "@tailwindcss/vite": "^4.1.11",
     "@vercel/speed-insights": "^1.2.0",
     "alpinejs": "^3.14.9",
-    "astro": "^5.14.1",
+    "astro": "^5.15.9",
     "astro-icon": "^1.1.5",
-    "preact": "^10.26.2",
+    "preact": "^10.28.2",
     "prismjs": "^1.30.0",
     "tailwindcss": "^4.1.8"
   },
