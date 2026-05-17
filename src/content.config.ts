@@ -1,8 +1,10 @@
-// src/content/config.ts
-import { defineCollection, z } from 'astro:content';
+// src/content.config.ts
+import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
 
 const jsonDataCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/staticData' }),
   schema: z.object({
     //Define JSON-file structure
     profileImage: z.string(),

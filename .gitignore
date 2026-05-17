@@ -39,3 +39,6 @@ drawings/
 # Obsidian files
 .obsidian/*
 .obsidian
+
+# Post Drafts
+./src/pages/blog/posts/scratch-pad/*
